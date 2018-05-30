@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => ({
 const Login = ({ user, responseFB, handleLoginSubmit}) => {
     if(!user){
         return (
-            <MuiThemeProvider>
+            <MuiThemeProvider style={center_container_style}>
             <div style={center_container_style}>
                 <TextField
                     hintText="Enter your Username"
@@ -42,7 +42,6 @@ const Login = ({ user, responseFB, handleLoginSubmit}) => {
                 <div>
                     <FacebookLogin
                     appId="165378730824562"
-                    autoLoad={true}
                     fields="name,email,picture"
                     callback={responseFB} />
                 </div>
@@ -52,9 +51,9 @@ const Login = ({ user, responseFB, handleLoginSubmit}) => {
     }
     else{
       return(
-        <MuiThemeProvider>
+        <MuiThemeProvider style={center_container_style}>
             <div style={center_container_style}>
-                <Avatar facebookId={user.user_id} size="250" round={true}/>
+                <Avatar facebookId={user.user_id} size={250} round={true}/>
                 <br />
                 <RaisedButton label={'Continue as ' + user.name} primary={true} onClick={(event) => handleLoginSubmit(event)}/>
             </div>
@@ -68,7 +67,8 @@ const center_container_style = {
     flexDirection: 'column',
     justifyContent: 'center',   
     alignItems: 'center',
-    marginTop: 375
+    position: "absolute",
+    top: 0, bottom: 0, left: 0, right: 0
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
