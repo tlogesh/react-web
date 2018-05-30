@@ -6,6 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import FacebookLogin from 'react-facebook-login';
 import Avatar from 'react-avatar';
+import history from '../store/index'
 
 
 const mapStateToProps = state => ({
@@ -16,12 +17,12 @@ const mapDispatchToProps = dispatch => ({
     responseFB: (response) => dispatch(
         login(response)
     ),
-    handleLoginSubmit: (event) => {
-        console.log(event);
+    handleRedirection: (event) => {
+        history.push("/abt")   
     } 
 })
   
-const Login = ({ user, responseFB, handleLoginSubmit}) => {
+const Login = ({ user, responseFB, handleRedirection}) => {
     if(!user){
         return (
             <MuiThemeProvider style={center_container_style}>
@@ -37,7 +38,7 @@ const Login = ({ user, responseFB, handleLoginSubmit}) => {
                     floatingLabelText="Password"
                 />
                 <br />
-                <RaisedButton label="Submit" primary={true} onClick={(event) => handleLoginSubmit(event)}/>
+                <RaisedButton label="Submit" primary={true} onClick={(event) => handleRedirection()}/>
                 <br />
                 <div>
                     <FacebookLogin
@@ -55,7 +56,7 @@ const Login = ({ user, responseFB, handleLoginSubmit}) => {
             <div style={center_container_style}>
                 <Avatar facebookId={user.user_id} size={250} round={true}/>
                 <br />
-                <RaisedButton label={'Continue as ' + user.name} primary={true} onClick={(event) => handleLoginSubmit(event)}/>
+                <RaisedButton label={'Continue as ' + user.name} primary={true} onClick={(event) => handleRedirection(event)}/>
             </div>
         </MuiThemeProvider>
       )
