@@ -28,7 +28,6 @@ const mapDispatchToProps = dispatch => ({
         //should be doing the validation of form here and dispatch an login action
     },
     handleLogout:() => {
-        console.log('logout called');
         dispatch(logout());
     },
 })

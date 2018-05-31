@@ -20,7 +20,6 @@ const login = (state = intialState, action) => {
 
       //Login succcess
       case LOGIN_SUCCESS:
-        console.log(state);
         return (Object.assign({}, state, {
             user: Object.assign({}, state.user, {
                 user_id: action.user.user_id,
@@ -33,7 +32,6 @@ const login = (state = intialState, action) => {
       
       //login Failure
       case LOGIN_FAILURE:
-        console.log('login failure',state);
         return (Object.assign({}, state, {
           user: Object.assign({}, state.user, {
             show_error_message: action.user.show_error_message
@@ -42,7 +40,6 @@ const login = (state = intialState, action) => {
       
       //logout - set every user attributes to null on logout
       case LOGOUT:
-        console.log('login failure',state);
         return (Object.assign({}, state, {
           user: Object.assign({}, state.user, initialUser)
         }))
