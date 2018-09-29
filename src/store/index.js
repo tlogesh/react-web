@@ -16,6 +16,7 @@ const persistConfig = {
 const pReducer = persistReducer(persistConfig, rootReducer);
 export const store = createStore(pReducer, applyMiddleware(logger, thunk, routerMiddleware(history)));
 export const persistor = persistStore(store);
+const testVar = "hi";
 
 export default [
     store,
