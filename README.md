@@ -1,5 +1,5 @@
 Login screen built on react, with facebook integration.
 
-##how to run
+###how to run
 npm install
 npm run start
